@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset iframe</title>
+    <link rel="icon" type="image/x-icon" href="https://img5.pic.in.th/file/secure-sv1/sirindhorn-logo-png.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <script>
+        function loadIframeWithId(id) {
+            const iframe = document.getElementById("assetIframe");
+            iframe.src = `https://script.google.com/macros/s/AKfycbwa7f2vyS0g_4l-s3p9T_JVjxgbFUzUoYRNVSBq1WHXnircGJUiG6f9E6Oe5E6KQ60/exec?id=${id}`;
+        }
+
+        window.onload = function() {
+            const id = "12"; 
+            loadIframeWithId(id);
+        };
+    </script>
+</head>
+<body>
+    <iframe id="assetIframe"></iframe>
+</body>
+</html>
