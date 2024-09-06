@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asset iframe</title>
-    <link rel="icon" type="image/x-icon" href="https://img5.pic.in.th/file/secure-sv1/sirindhorn-logo-png.png">
     <style>
         body, html {
             margin: 0;
@@ -23,14 +22,23 @@
         }
     </style>
     <script>
-        function loadIframeWithId(id) {
-            const iframe = document.getElementById("assetIframe");
-            iframe.src = `https://script.google.com/macros/s/AKfycbwa7f2vyS0g_4l-s3p9T_JVjxgbFUzUoYRNVSBq1WHXnircGJUiG6f9E6Oe5E6KQ60/exec?id=${id}`;
+        // ฟังก์ชันเพื่อดึงค่าพารามิเตอร์จาก URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
         }
 
         window.onload = function() {
-            const id = "12"; 
-            loadIframeWithId(id);
+            // ดึงค่า id จาก URL
+            const id = getQueryParam('id');
+            
+            if (id) {
+                // โหลด iframe ด้วย id ที่ดึงมา
+                const iframe = document.getElementById("assetIframe");
+                iframe.src = `https://script.google.com/macros/s/AKfycbwa7f2vyS0g_4l-s3p9T_JVjxgbFUzUoYRNVSBq1WHXnircGJUiG6f9E6Oe5E6KQ60/exec?id=${id}`;
+            } else {
+                alert("No ID provided!");
+            }
         };
     </script>
 </head>
